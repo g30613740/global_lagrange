@@ -4,6 +4,8 @@
 a.out
 a
 
+parameters.txt
+
 # Файлы Python-кэша
 __pycache__/
 *.pyc
