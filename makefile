@@ -1,14 +1,16 @@
-a: functions.o main.o
-	g++ -fno-elide-constructors -std=c++11 functions.o main.o
+CXX = g++
+CXXFLAGS = -Wall -Wextra -std=c++11 -Iinclude
+TARGET = a
+SRCS = src/main.cpp src/functions.cpp
+OBJS = $(SRCS:.cpp=.o)
 
-main.o: main.cpp functions.h
-	g++ -fno-elide-constructors -std=c++11 main.cpp -c
+all: $(TARGET)
 
-functions.o: functions.cpp functions.h
-	g++ -fno-elide-constructors -std=c++11 functions.cpp -c
+$(TARGET): $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
 
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -f *.o
-	rm -f *.out
-	rm -f *.txt
+	rm -f $(OBJS) $(TARGET)
