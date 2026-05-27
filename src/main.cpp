@@ -14,7 +14,7 @@ int main () {
 
     extract_parameters_to_the_file (x, y, z, N, M, a, b);
 
-    string comand_and_filename = "python3 create_plot.py"; // start Python
+    string comand_and_filename = "python3 scripts/create_plot.py"; // start Python
     system (comand_and_filename.c_str ());                 // calling Python
 
     freeing_up_resources (x, y, z);
